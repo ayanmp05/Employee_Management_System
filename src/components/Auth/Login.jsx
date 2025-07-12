@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Login = () => {
+const Login = ({handleLogin}) => {
   // useState for email,pass
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -8,13 +8,12 @@ const Login = () => {
   const submitHandler = (e) => {
     // Preventing default property of form
     e.preventDefault();
-    console.log(email,password)
+    //Setting email & password on submit to handleLogin
+    handleLogin(email,password)
     // setting value of boxes to empty
     setEmail('')
     setPassword('')
   }
-
-  // 31:07 uptill
 
   return (
     <div className='flex h-screen w-screen items-center justify-center'>
@@ -27,10 +26,10 @@ const Login = () => {
           }} className='flex flex-col items-center justify-center'>
 
           <input
-            // Setting initial value of this box which can not be changable until event push
+            // Setting initial value of this box which can not be changeable until event push
             value={email}
             onChange={(e) => {
-              // Adding event listner & setting the value to the email 
+              // Adding event listener & setting the value to the email 
               setEmail(e.target.value)
             }}
             required className='text-white outline-none bg-transparent border-2 border-emerald-600 text-xl py-3 px-5 rounded-full placeholder:text-gray-400 placeholder:text-base mt-4' type="email" placeholder='Enter email' />
