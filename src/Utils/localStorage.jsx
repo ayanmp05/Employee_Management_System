@@ -1,9 +1,17 @@
+// localStorage.clear()
 // Data of Employees
 const employees = [
   {
     id: 1,
+    firstName: "Aarav",
     email: "employee1@example.com",
     password: "123",
+    taskCounts: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         active: true,
@@ -39,8 +47,15 @@ const employees = [
   },
   {
     id: 2,
+    firstName: "Vihaan",
     email: "employee2@example.com",
     password: "123",
+    taskCounts: {
+      active: 2,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         active: true,
@@ -86,8 +101,15 @@ const employees = [
   },
   {
     id: 3,
+    firstName: "Ishita",
     email: "employee3@example.com",
     password: "123",
+    taskCounts: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         active: false,
@@ -123,8 +145,15 @@ const employees = [
   },
   {
     id: 4,
+    firstName: "Neha",
     email: "employee4@example.com",
     password: "123",
+    taskCounts: {
+      active: 3,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         active: true,
@@ -180,8 +209,15 @@ const employees = [
   },
   {
     id: 5,
+    firstName: "Rohan",
     email: "employee5@example.com",
     password: "123",
+    taskCounts: {
+      active: 2,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         active: false,
@@ -226,7 +262,8 @@ const employees = [
     ]
   }
 ];
-// Data of Admin
+
+// // Data of Admin
 const admin = [
   {
     id: 1,

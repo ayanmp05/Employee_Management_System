@@ -10,6 +10,8 @@ import { AuthContext } from './context/AuthProvider'
 const App = () => {
   // User state handling
   const [user, setUser] = useState(null)
+
+  const [loggedInUserData, setLoggedInUserData] = useState(null)
   // Using AuthContext to retrieve data
   const authData = useContext(AuthContext)
 
@@ -21,16 +23,20 @@ const App = () => {
   //     }
   //   }
   // }, [authData])
-  
+
   // handleLogin setup and passing argument in email and password
   const handleLogin = (email, password) => {
     if (email == 'admin@me.com' && password == '123') {
       setUser('admin')
       // Setting user role in admin
-      localStorage.setItem('loggedInUser',JSON.stringify({role:'admin'}))
-    } else if (authData && authData.employees.find((e) => e.email == email && e.password == password)) {
-      setUser('employee')
-      localStorage.setItem('loggedInUser',JSON.stringify({role:'employee'}))
+      localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))
+    } else if (authData) {
+      const employee = authData.employees.find((e) => e.email == email && e.password == password)
+      if (employee) {
+        setUser('employee')
+        setLoggedInUserData(employee)
+        localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee' }))
+      }
     } else {
       alert("Invalid Credentials")
     }
@@ -41,7 +47,7 @@ const App = () => {
     <>
       {/* If user is not there then show the log in page */}
       {!user ? <Login handleLogin={handleLogin} /> : ''}
-      {user == 'admin' ? <AdminDashboard /> : <EmployeeDashboard />}
+      {user == 'admin' ? <AdminDashboard /> : (user == 'employee' ? <EmployeeDashboard data={loggedInUserData} /> : null)}
     </>
   )
 }
