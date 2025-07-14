@@ -5,7 +5,7 @@ import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { getLocalStorage, setLocalStorage } from './Utils/localStorage'
 import { AuthContext } from './context/AuthProvider'
 
-// 2:49:00 uptill
+
 
 const App = () => {
   // User state handling

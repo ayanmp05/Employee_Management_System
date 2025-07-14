@@ -12,7 +12,7 @@ const CompleteTask = () => {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi error, officia tempore itaque harum ut.
       </p>
       <div className='mt-2'>
-          <button className='w-full bg-green-500'>Completed</button>
+          <button className='w-full bg-green-500 rounded-xl'>Completed</button>
       </div>
     </div>
   )
