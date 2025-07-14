@@ -6,10 +6,10 @@
 } */
 
 *{
-  color: white;
+  color: #fff;
 }
 body{
-  background: rgb(0, 0, 0);
+  background: #111;
 }
 
 #tasklist::-webkit-scrollbar{
